@@ -1,4 +1,4 @@
-import {HEXAGRAMS,COUNT,REGULAR_LINE_COUNT,SPECIAL_LINE_COUNT,SECTIONS,TRIGRAMS,byNumber,changeLine,oppositeOf,reversedOf} from "./data/index.js";
+import {HEXAGRAMS,COUNT,REGULAR_LINE_COUNT,SPECIAL_LINE_COUNT,SECTIONS,TRIGRAMS,byNumber,wingGlossByNumber,changeLine,oppositeOf,reversedOf} from "./data/index.js";
 const $=id=>document.getElementById(id);
 const el=(tag,cls,text)=>{
  const node=document.createElement(tag);
@@ -139,13 +139,39 @@ function renderReadings(h){
  for(const [i,special] of h.specials.entries())frag.append(readingCard(h,"extra-"+i,"特殊经辞",special.label,special.text,special.gloss));
  $("readings").replaceChildren(frag);countRevealed();
 }
+function createWingMeaning(h,kind,index,gloss){
+ const button=el("button","wing-reveal","轻触见译 ＋");
+ button.type="button";
+ const id="wing-translation-"+h.number+"-"+kind+"-"+index;
+ button.setAttribute("aria-expanded","false");
+ button.setAttribute("aria-controls",id);
+ button.setAttribute("aria-label","揭晓本条易传现代释读");
+ const meaning=el("div","wing-translation");
+ meaning.id=id;meaning.hidden=true;
+ meaning.append(el("small",null,"现代白话导读 · CC BY-SA 4.0"),el("p",null,gloss));
+ button.addEventListener("click",()=>{
+  const opened=button.getAttribute("aria-expanded")==="false";
+  button.setAttribute("aria-expanded",String(opened));
+  button.setAttribute("aria-label",opened?"收起本条现代释读":"揭晓本条易传现代释读");
+  button.textContent=opened?"收起此条译文 −":"轻触见译 ＋";
+  meaning.hidden=!opened;
+ });
+ return [button,meaning];
+}
 function renderWings(h){
- $("tuan-text").textContent=h.tuan;
- $("image-text").textContent=h.image;
+ const gloss=wingGlossByNumber(h.number);
+ if(!gloss)throw new Error("No modern Wing explanations found for hexagram "+h.number);
+ for(const [kind,text,meaning] of [["tuan",h.tuan,gloss.tuan],["image",h.image,gloss.image]]){
+  const original=$(kind+"-text");original.textContent=text;
+  const parent=original.parentElement;
+  parent.querySelectorAll(".wing-reveal,.wing-translation").forEach(node=>node.remove());
+  parent.append(...createWingMeaning(h,kind,"main",meaning));
+ }
  const frag=document.createDocumentFragment();
- h.lines.forEach(line=>{
-  const li=el("li",null,line.smallImage);
+ h.lines.forEach((line,index)=>{
+  const li=el("li");
   li.setAttribute("aria-label",line.label+"小象传");
+  li.append(el("p","wing-original",line.smallImage),...createWingMeaning(h,"small",index+1,gloss.small[index]));
   frag.append(li);
  });
  $("small-image-list").replaceChildren(frag);
