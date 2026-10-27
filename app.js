@@ -162,7 +162,7 @@ function renderWings(h){
  const gloss=wingGlossByNumber(h.number);
  if(!gloss)throw new Error("No modern Wing explanations found for hexagram "+h.number);
  for(const [kind,text,meaning] of [["tuan",h.tuan,gloss.tuan],["image",h.image,gloss.image]]){
-  const original=$(kind+"-text");original.textContent=text;
+  const original=kind==="tuan"?$("tuan-text"):$("image-text");original.textContent=text;
   const parent=original.parentElement;
   parent.querySelectorAll(".wing-reveal,.wing-translation").forEach(node=>node.remove());
   parent.append(...createWingMeaning(h,kind,"main",meaning));
