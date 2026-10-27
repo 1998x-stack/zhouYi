@@ -1,0 +1,20 @@
+name: ZhouYi - Validate
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Validate hexagrams, textual integrity and reader
+        run: npm test
+      - name: Assemble static site
+        run: npm run build
