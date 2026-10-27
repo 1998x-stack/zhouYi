@@ -2,10 +2,14 @@ import A from "./hexagrams-01-16.js";
 import B from "./hexagrams-17-32.js";
 import C from "./hexagrams-33-48.js";
 import D from "./hexagrams-49-64.js";
+import WINGS from "./wings-gloss.js";
 
 /** 周易古籍原文 + CC BY-SA 4.0 第三方现代导读。逐卦来源修订号见 records，详见 CONTENT-ATTRIBUTION.md。 */
 export const HEXAGRAMS=Object.freeze([...A,...B,...C,...D]);
 export const COUNT=HEXAGRAMS.length;
+/** Complete modern editorial explanations of Tuan, Daxiang and Xiaoxiang. CC BY-SA 4.0 attributed in CONTENT-ATTRIBUTION.md. */
+export const WING_GLOSSES=Object.freeze(WINGS);
+export const wingGlossByNumber=n=>WING_GLOSSES[Number(n)]??null;
 export const REGULAR_LINE_COUNT=HEXAGRAMS.reduce((n,h)=>n+h.lines.length,0);
 export const SPECIAL_LINE_COUNT=HEXAGRAMS.reduce((n,h)=>n+h.specials.length,0);
 export const TEXT_UNIT_COUNT=COUNT+REGULAR_LINE_COUNT+SPECIAL_LINE_COUNT;
