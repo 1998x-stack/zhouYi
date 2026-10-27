@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="zh-CN" data-theme="silk">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#ede9da">
+<meta name="description" content="周易六十四卦数字研读馆。64卦辞、384爻辞、乾坤用九用六、《彖》《象》分层阅读；原文在上，白话导读点击揭晓；交互式阴阳卦象学习。">
+<meta property="og:title" content="周易 · 观变知时"><meta property="og:description" content="六十四象 · 一卦六爻 · 观其变而明其理">
+<meta property="og:image" content="./assets/og-cover.svg">
+<link rel="icon" type="image/svg+xml" href="./assets/favicon.svg"><link rel="stylesheet" href="./styles.css">
+<title>周易 · 观变知时 | I Ching</title>
+</head>
+<body>
+<a class="skip" href="#reader">跳转至阅读</a><div id="progress" class="progress" aria-hidden="true"></div>
+<header class="header" id="top"><a href="#top" class="brand"><span class="brand-seal">易</span><span class="brand-title">周易<small>THE BOOK OF CHANGES</small></span></a><nav class="top-nav" aria-label="页面导航"><a href="#idea">观易</a><a href="#catalogue">六十四卦</a><a href="#reader">读经传</a></nav><div class="header-actions"><button type="button" id="theme-toggle" aria-label="切换夜读">◑</button><a class="github" href="https://github.com/1998x-stack/zhouYi" target="_blank" rel="noopener noreferrer">SOURCE ↗</a></div></header>
+<main>
+<section class="hero">
+<div class="hero-art" aria-hidden="true"><div class="orbit orbit-1"></div><div class="orbit orbit-2"></div><div class="orbit orbit-3"></div><div class="disc"><div class="yin-yang"><div class="fish-one"></div><div class="fish-two"></div><div class="point-one"></div><div class="point-two"></div></div></div><div class="hero-symbol">䷀</div><div class="art-vertical">阴阳相推 · 生生不息</div><div class="cloud cloud-one"></div><div class="cloud cloud-two"></div></div>
+<div class="hero-content">
+<div class="eyebrow"><span class="eyebrow-rule"></span> 中国古典思想 · 经与传 <span class="eyebrow-en">CLASSICAL CHANGES</span></div>
+<p class="latin">STUDY THE PATTERNS OF CHANGE</p>
+<h1>周<span>易</span><i>。</i></h1><p class="hero-lines">穷则变，变则通，<br>通则久。</p>
+<p class="hero-description">天地之象，六十四卦。<br>自初爻而上，读见进退与变易。<br>先思其辞，再轻触，见其现代导读。</p>
+<div class="hero-links"><a href="#reader" class="primary">翻开周易 <span>↗</span></a><a href="#catalogue" class="soft">览六十四卦 ↓</a></div>
+</div><div class="hero-footer"><span>阴 / 阳 · 象 / 辞</span><span>上经三十 · 下经三十四</span><span>SCROLL TO READ ↓</span></div>
+</section>
+<section class="section wrap" id="idea"><span class="eyebrow appear">01 / UNDERSTANDING THE YI</span><h2 class="display appear">观其象，<br><em>察其变。</em></h2><p class="section-lead appear">《周易》既是古代筮书，也是千百年来不断诠释的思想经典。本馆严格分开《易经》的卦辞、爻辞和《易传》的彖、象；以卦象学习变化、处境与尺度，而非以它保证预测未来。</p>
+<div class="principles">
+<article class="principle appear"><span>壹 / XIANG</span><div class="principle-icon">☰</div><h3>观象</h3><p>八卦两两相重成六十四卦，以六爻阴阳组合描述传统的象征结构。</p></article>
+<article class="principle appear"><span>贰 / CI</span><div class="principle-icon">辞</div><h3>读辞</h3><p>卦辞观整体，爻辞分六位；每句独立思考，点击才展开对应白话导读。</p></article>
+<article class="principle appear"><span>叁 / BIAN</span><div class="principle-icon">变</div><h3>识变</h3><p>点击任意爻观察单爻变化后的卦象；作为数学结构与经典义理的学习。</p></article>
+</div></section>
+<section class="quote-section"><span class="eyebrow">THE GREAT IMAGE · 乾卦</span><blockquote>天行健，<br><em>君子以自强不息。</em></blockquote><p>经典所言，可借以思考；现实之事，仍须凭事实判断。</p></section>
+<section class="section wrap catalogue" id="catalogue"><span class="eyebrow appear">02 / SIXTY-FOUR HEXAGRAMS</span><h2 class="display appear">六十四象，<br><em>周而复始。</em></h2><p class="section-lead appear">依文王卦序，上经三十卦、下经三十四卦。点击卦名进入研读；八卦阴阳爻的结构为确定的符号关系，而非关于个人未来的概率断言。</p>
+<div class="controls"><label class="search"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="检索卦名、经辞、白话与卦象…" aria-label="搜索周易经传"><kbd>/</kbd></label><div class="filters" role="group" aria-label="卦序筛选"><button type="button" class="filter active" data-scope="all">全部六十四</button><button type="button" class="filter" data-scope="first">上经 · 30</button><button type="button" class="filter" data-scope="second">下经 · 34</button><button type="button" class="filter" data-scope="saved">我的收藏</button></div></div>
+<div class="result-row"><span id="result-count" role="status" aria-live="polite">64 / 64 卦</span><span>点击卦象进入研读</span></div><div class="hex-grid" id="hex-grid"></div><p class="no-result" id="no-result" hidden>未找到匹配的卦，请尝试其他关键词。</p>
+</section>
+<section class="reader-section" id="reader"><div class="wrap"><span class="eyebrow">03 / THE READING ROOM</span><h2 class="display reading-header">六爻有序，<br><em>一辞一读。</em></h2><p class="section-lead">原典在上，现代白话导读在下，逐条隐藏、独立揭晓。自下而上认六爻，再阅读后来的《彖传》《象传》，感受同一卦象在不同时代的理解方式。</p>
+<div class="reader-layout"><aside class="sidebar"><div class="sidebar-heading"><span>卦目 · 六十四</span><span id="sidebar-progress">01 / 64</span></div><nav class="hex-nav" id="hex-nav" aria-label="六十四卦章节导航"></nav><p class="sidebar-note">文王卦序并非唯一排序；本站不将卦名用作对个人未来的确定预测。</p></aside>
+<div class="reading-main">
+<div class="reader-toolbar"><div class="reader-toolbar-label"><span id="reader-section">上经 · 01</span><span id="read-count" role="status" aria-live="polite">已揭晓 0 / 8 条</span></div><div class="tools"><button id="collapse-all" type="button">收起全部</button><button id="font-minus" aria-label="减小阅读字号" type="button">A−</button><button id="font-plus" aria-label="增大阅读字号" type="button">A＋</button></div></div>
+<div class="hex-intro"><div id="hex-kicker" class="hex-kicker">第一卦 · 上经</div><h3 id="hex-heading">乾</h3><div id="hex-fullname" class="hex-fullname">乾为天</div><span id="intro-symbol" class="intro-symbol" aria-hidden="true">䷀</span></div>
+<div class="hex-info-grid"><div class="info-panel"><span class="small-caps">SIX LINES · 初爻在下</span><div class="six-lines" id="six-lines" aria-label="六爻阴阳结构，可逐爻预览变化"></div><div class="trigram-caption" id="trigram-caption">下乾 ☰ · 上乾 ☰</div></div><div class="info-panel relation-panel"><span class="small-caps">RELATIONSHIPS · 卦象结构</span><p>点选左侧一爻，观察其阴阳翻转后的相邻卦；也可查看错卦或综卦。此操作是符号学习，不是占测。</p><div class="relation-actions"><button id="opposite" type="button">错卦 · 阴阳全反</button><button id="reversed" type="button">综卦 · 上下倒置</button></div><div class="result-symbol" id="relation-symbol" aria-hidden="true">䷁</div><strong id="relation-name">坤 · 第二卦</strong><span class="result-sub" id="relation-caption">阴阳全反</span><button id="open-relation" type="button">阅读该卦 ↗</button></div></div>
+<div class="text-legend"><span>经文 / CLASSICAL TEXT</span><span>点击逐条见义</span></div>
+<div id="readings" role="list" aria-label="古代卦爻原文和逐条隐藏的现代白话导读"></div>
+<details class="wings"><summary>《易传》 · 彖、象释义原文 <span>点击展开</span></summary><div class="wings-body"><div><span>彖传 · 原文</span><p id="tuan-text"></p></div><div><span>大象传 · 原文</span><p id="image-text"></p></div><div><span>六条小象传 · 原文</span><ol id="small-image-list"></ol></div><p class="wings-note">此处为传文原典，和卦辞、爻辞分层展示；未对传文伪造逐句白话。所据不同底本的版本差异仍待校勘。</p></div></details>
+<div class="reader-tail"><div><button type="button" id="bookmark" aria-pressed="false">☆ 收藏此卦</button><button type="button" id="copy-link">↗ 复制本卦链接</button></div><a id="original-source" href="https://zh.wikisource.org/wiki/周易" target="_blank" rel="noopener noreferrer">查看原典底本 ↗</a></div>
+<div class="pager"><button id="prev" type="button"><span>← 上一卦</span><strong id="prev-name">卷首</strong></button><button id="next" type="button"><span>下一卦 →</span><strong id="next-name">坤</strong></button></div>
+<p class="license-note">古文及《彖》《象》依据维基文库逐卦电子本；现代白话导读署名 DaviRain-Su / Classical Atlas，CC BY-SA 4.0。卦爻注释是辅助理解稿，不保证是唯一解释；软件阅读体验不构成个人命运、金融或医疗预测。<a href="https://github.com/1998x-stack/zhouYi/blob/main/CONTENT-ATTRIBUTION.md" target="_blank" rel="noopener noreferrer">查看完整文本来源与许可 ↗</a></p>
+</div></div></div></section>
+</main><footer class="footer"><div class="footer-main"><span class="footer-mark">易</span><div><strong>观变而知时，<br>守正而有度。</strong><p>周易数字研读馆 · BOOK OF CHANGES</p></div></div><div class="footer-bottom"><span>SIXTY-FOUR HEXAGRAMS · OPEN CLASSICAL READING</span><div><a href="https://github.com/1998x-stack/zhouYi">源码 ↗</a><a href="https://github.com/1998x-stack/zhouYi/tree/main/docs">文档 ↗</a><a href="#top">返回顶部 ↑</a></div></div></footer>
+<div id="toast" role="status" aria-live="polite" class="toast"></div><script type="module" src="./app.js"></script>
+</body></html>
